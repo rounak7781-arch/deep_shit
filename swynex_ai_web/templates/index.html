@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWYNEX AI — Student Feedback Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand"><span class="logo">S</span><div><b>SWYNEX AI</b><small>Student Feedback Intelligence</small></div></div>
+    <span class="status">● AI ENGINE ONLINE</span>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <div>
+            <p class="eyebrow">AI-POWERED ANALYTICS</p>
+            <h1>Understand student feedback <span>instantly.</span></h1>
+            <p class="subtitle">Analyze feedback, detect sentiment, and turn raw student responses into useful insights for teachers and institutions.</p>
+        </div>
+        <div class="hero-card">
+            <div class="mini-label">CURRENT MODEL</div>
+            <strong>Rule-Based NLP</strong>
+            <p>Positive • Negative • Neutral</p>
+        </div>
+    </section>
+
+    <section class="cards">
+        <div class="stat"><span>Positive</span><strong id="positiveCount">0</strong></div>
+        <div class="stat"><span>Negative</span><strong id="negativeCount">0</strong></div>
+        <div class="stat"><span>Neutral</span><strong id="neutralCount">0</strong></div>
+        <div class="stat"><span>Total Feedback</span><strong id="totalCount">0</strong></div>
+    </section>
+
+    <section class="grid">
+        <div class="panel">
+            <div class="panel-head"><div><p class="eyebrow">LIVE ANALYSIS</p><h2>Analyze feedback</h2></div></div>
+            <textarea id="feedback" placeholder="Example: The teaching method is not good and the classes are confusing..."></textarea>
+            <button id="analyzeBtn">Analyze Sentiment →</button>
+            <div id="resultBox" class="result hidden"></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-head"><div><p class="eyebrow">DATASET</p><h2>Upload CSV</h2></div></div>
+            <p class="muted">Upload a CSV containing a column named <code>feedback</code>.</p>
+            <label class="upload">
+                <input type="file" id="csvFile" accept=".csv">
+                <span>Choose student_feedback.csv</span>
+            </label>
+            <button id="uploadBtn" class="secondary">Analyze Dataset</button>
+            <div id="uploadMsg" class="muted"></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-head">
+            <div><p class="eyebrow">RESULTS</p><h2>Feedback analysis</h2></div>
+            <div class="legend"><span class="dot positive"></span>Positive <span class="dot negative"></span>Negative <span class="dot neutral"></span>Neutral</div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Student Feedback</th><th>Sentiment</th></tr></thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="about">
+        <div><p class="eyebrow">PROJECT FLOW</p><h2>How SWYNEX AI works</h2></div>
+        <div class="steps">
+            <div><b>01</b><strong>Collect</strong><p>Student feedback is entered or uploaded through CSV.</p></div>
+            <div><b>02</b><strong>Process</strong><p>Text is cleaned and checked against sentiment rules and negation.</p></div>
+            <div><b>03</b><strong>Classify</strong><p>Each response is classified as positive, negative, or neutral.</p></div>
+            <div><b>04</b><strong>Visualize</strong><p>Teachers can quickly review patterns and individual responses.</p></div>
+        </div>
+    </section>
+</main>
+
+<footer>SWYNEX AI • Student Feedback Sentiment Analyzer • Academic Project Demo</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
